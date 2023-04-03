@@ -9,47 +9,47 @@ const pics = [
     
   ]
 
-  const boxImg = document.querySelector('.box-img'); // Находим div с классом "box-img"
+  const boxImg = document.querySelector('.box-img')
 
   for (let i = 0; i < pics.length; i++) {
     const imgWrapper = document.createElement('div')
     imgWrapper.classList.add('imgWrapper')
-    const img = document.createElement('img'); // Создаем элемент "img"
-    img.classList.add('img-box'); // Добавляем ему класс "img-box"
-    img.setAttribute('src', pics[i]); // Устанавливаем ему src атрибут с url-адресом из массива pics
-    imgWrapper.appendChild(img);
-    boxImg.appendChild(imgWrapper);
+    const img = document.createElement('img') 
+    img.classList.add('img-box')
+    img.setAttribute('src', pics[i])
+    imgWrapper.appendChild(img)
+    boxImg.appendChild(imgWrapper)
 }
 
 
-const imgBoxes = document.querySelectorAll('.img-box'); // Находим все элементы с классом "img-box"
+const imgBoxes = document.querySelectorAll('.img-box')
 
 for (let i = 0; i < imgBoxes.length; i++) {
   imgBoxes[i].addEventListener('click', function() {
-    const modal = document.createElement('div'); // Создаем элемент "div" для модального окна
-    modal.classList.add('modal'); // Добавляем ему класс "modal"
+    const modal = document.createElement('div')
+    modal.classList.add('modal')
     
-    const modalImg = document.createElement('img'); // Создаем элемент "img" для увеличенной картинки
-    modalImg.setAttribute('src', this.getAttribute('src')); // Устанавливаем ему src атрибут со значением src атрибута кликнутой картинки
-    modalImg.classList.add('modal-img');
+    const modalImg = document.createElement('img')
+    modalImg.setAttribute('src', this.getAttribute('src'))
+    modalImg.classList.add('modal-img')
 
 
     
-    const closeBtn = document.createElement('button'); // Создаем кнопку "close"
-    closeBtn.classList.add('close-btn'); // Добавляем ей класс "close-btn"
-    closeBtn.textContent = 'close'; // Устанавливаем ей текст "close"
+    const closeBtn = document.createElement('button')
+    closeBtn.classList.add('close-btn')
+    closeBtn.textContent = 'close';
     closeBtn.addEventListener('click', function() {
-      modal.remove(); // При клике на кнопку "close" удаляем модальное окно из DOM
+      modal.remove()
    
     })
     modal.onclick = function() {
          modal.remove()
        } 
     
-    modal.appendChild(closeBtn);  // Добавляем кнопку "close" в модальное окно
-    modal.appendChild(modalImg); // Добавляем увеличенную картинку в модальное окно
+    modal.appendChild(closeBtn)
+    modal.appendChild(modalImg)
 
-    document.body.appendChild(modal); // Добавляем модальное окно в конец тела документа
+    document.body.appendChild(modal)
   });
   
 }
